@@ -6,7 +6,7 @@ import java.util.List;
  */
 public class Student extends Person {
     String major;
-    List<Course> courseList = new ArrayList<Course>();
+    List<Course> courseList;
 
     public Student(String name, String emailAddress, String major) {
         super(name, emailAddress);
@@ -18,6 +18,9 @@ public class Student extends Person {
     }
 
     public void addCourse(Course c) {
-        courseList.add(c);
+        if (this.courseList == null) {
+            this.courseList = new ArrayList<Course>();
+        }
+        this.courseList.add(c);
     }
 }
